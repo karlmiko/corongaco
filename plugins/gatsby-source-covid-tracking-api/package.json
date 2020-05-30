@@ -1,7 +1,0 @@
-{
-  "name": "gatsby-source-covid-tracking-api",
-  "version": "1.0.0",
-  "description": "A Gatsby source plugin for COVID API files",
-  "author": "",
-  "license": "Apache-2.0"
-}

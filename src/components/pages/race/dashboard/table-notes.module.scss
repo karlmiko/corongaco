@@ -1,9 +1,0 @@
-@import '~scss/breakpoints.module.scss';
-
-.header {
-  @media (min-width: $viewport-md) {
-    margin-top: -50px;
-    padding-top: 50px;
-    display: inline-block;
-  }
-}

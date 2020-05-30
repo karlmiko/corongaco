@@ -1,7 +1,0 @@
-@import '~scss/breakpoints.module.scss';
-
-.container {
-  @media (min-width: $viewport-md) {
-    max-width: 60%;
-  }
-}
