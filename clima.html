@@ -14,12 +14,6 @@
 	</head>
 	<body class="is-preload">
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 
 		<!-- Wrapper -->
@@ -49,10 +43,9 @@
 						<h2>Menu</h2>
 						<ul>
 							<li><a href="index.html">Home</a></li>
-							<li><a href="generic.html">Objetivo</a></li>
-							<li><a href="generic.html">Quem Somos</a></li>
-							<li><a href="generic.html">Contato</a></li>
-							<li><a href="elements.html">Elementos</a></li>
+							<li><a href="objetivo.html">Objetivo</a></li>
+							<li><a href="pitch.html">Pitch</a></li>
+							<li><a href="quemsomos.html">Quem Somos</a></li>
 						</ul>
 					</nav>
 
@@ -62,25 +55,46 @@
 							<h1>CLIMA</h1>
 							<!-- <span class="image main"><img src="images/pic13.jpg" alt="" /></span> -->
 
-							<canvas id="pie-chart" width="800" height="450"></canvas>
+							<canvas id="mixed-chart" width="800" height="450"></canvas>
 							
 
 							<script>
-								var myChart = new Chart(document.getElementById("pie-chart"), {
-								    type: 'pie',
+								var myChart = new Chart(document.getElementById("mixed-chart"), {
+								    type: 'bar',
 								    data: {
-								      labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+								      labels: ["1900", "1950", "1999", "2050"],
 								      datasets: [{
-								        label: "Population (millions)",
-								        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-								        data: [2478,5267,734,784,433]
-								      }]
+								          label: "Europe",
+								          type: "line",
+								          borderColor: "#8e5ea2",
+								          data: [408,547,675,734],
+								          fill: false
+								        }, {
+								          label: "Africa",
+								          type: "line",
+								          borderColor: "#3e95cd",
+								          data: [133,221,783,2478],
+								          fill: false
+								        }, {
+								          label: "Europe",
+								          type: "bar",
+								          backgroundColor: "rgba(0,0,0,0.2)",
+								          data: [408,547,675,734],
+								        }, {
+								          label: "Africa",
+								          type: "bar",
+								          backgroundColor: "rgba(0,0,0,0.2)",
+								          backgroundColorHover: "#3e95cd",
+								          data: [133,221,783,2478]
+								        }
+								      ]
 								    },
 								    options: {
 								      title: {
 								        display: true,
-								        text: 'Predicted world population (millions) in 2050'
-								      }
+								        text: 'Population growth (millions): Europe & Africa'
+								      },
+								      legend: { display: true}
 								    }
 								});
 							</script>
@@ -126,6 +140,13 @@
 					</footer>
 
 			</div>
+
+			<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
 	</body>
 </html>
