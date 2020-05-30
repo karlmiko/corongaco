@@ -1,0 +1,41 @@
+@import '~scss/breakpoints.module.scss';
+@import '~scss/colors.module.scss';
+
+.all-totals {
+  margin-top: 1.5rem;
+  @media (min-width: $viewport-lg) {
+    display: grid;
+    grid-column-gap: 1%;
+    grid-template-columns: repeat(3, 32.66666%);
+  }
+}
+
+.wrapper {
+  position: relative;
+}
+
+.cta-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.container {
+  margin: 4rem 0;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4rem;
+  * {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  h2,
+  a {
+    font-size: 18px;
+    line-height: 150%;
+  }
+}

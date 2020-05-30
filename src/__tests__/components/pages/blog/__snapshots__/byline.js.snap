@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Blog : Byline renders correctly 1`] = `
+<div
+  className="byline"
+>
+  <div
+    className="headshotContainer"
+  >
+    <img
+      alt=""
+      src="//images.ctfassets.net/arandomfile"
+    />
+  </div>
+  <p
+    className="bylineText"
+  >
+    <span
+      className="spacer"
+    >
+      By 
+    </span>
+    <span
+      className="author"
+    >
+      <a
+        className="authorInner"
+        href="https://twitter.com/test"
+      >
+        test name
+      </a>
+    </span>
+    <span
+      className="date"
+    >
+      Aug 1 2020
+    </span>
+  </p>
+</div>
+`;
+
+exports[`Components : Pages : Blog : Byline renders correctly 2`] = `
+<div
+  className="byline"
+>
+  <p
+    className="bylineText"
+  >
+    <span
+      className="spacer"
+    >
+      By 
+    </span>
+    <span
+      className="author"
+    >
+      <span
+        className="authorInner"
+      >
+        test name
+      </span>
+    </span>
+    <span
+      className="date"
+    >
+      Aug 1 2020
+    </span>
+  </p>
+</div>
+`;

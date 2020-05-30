@@ -1,0 +1,125 @@
+@import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
+
+$mobile-offset-x: -82%;
+$mobile-offset-y: -3%;
+$label-offset-x: 120;
+$label-offset-y: 25;
+
+$chart-color: #0f1551;
+
+.hero {
+  padding-top: 35px;
+  background: $color-plum-550;
+  color: white;
+  abbr[title] {
+    text-decoration: none;
+  }
+  @media (min-width: $viewport-md) {
+    padding: 35px 0 30px 0;
+  }
+  .container {
+    padding-bottom: 1.5rem;
+    @media (min-width: $viewport-lg) {
+      position: relative;
+      padding-bottom: 2rem;
+    }
+  }
+
+  .paragraph {
+    @media (min-width: $viewport-lg) {
+      font-size: 18px;
+      max-width: 30rem;
+      bottom: 2.5rem;
+      position: absolute;
+    }
+    @media (min-width: $viewport-xl) {
+      // max-width: 30rem;
+      bottom: 9rem;
+    }
+  }
+  .chart-wrapper {
+    overflow-x: hidden;
+
+    @media (min-width: $viewport-lg) {
+      max-width: 80%;
+      margin-left: 20%;
+    }
+  }
+}
+
+.chart {
+  padding-bottom: $label-offset-y;
+  padding-left: 5%;
+  @media (min-width: $viewport-md) {
+    padding-left: 0;
+  }
+}
+
+.chart-bar {
+  margin: 0 1px;
+  transform: translateY($mobile-offset-y);
+  width: 8px;
+  @media (min-width: $viewport-ms) {
+    transform: translateY(0);
+  }
+  @media (min-width: $viewport-lg) {
+    width: 9px;
+  }
+  &.ctp {
+    fill: $chart-color;
+  }
+  &.cdc {
+    fill: $color-plum-100;
+  }
+}
+
+.chart-line {
+  stroke: $color-plum-550;
+  stroke-width: 1.5px;
+  transform: translateX($mobile-offset-x * -1.1);
+
+  @media (min-width: $viewport-ms) {
+    transform: translateX(0);
+  }
+}
+
+.chart-legend {
+  fill: white;
+  font-size: 35px;
+  overflow: visible !important;
+  text-anchor: end;
+
+  @media (min-width: $viewport-ms) {
+    font-size: 20px;
+  }
+
+  @media (min-width: $viewport-lg) {
+    font-size: 18px;
+  }
+}
+
+.chart-y-axis {
+  transform: translateX($mobile-offset-x) translateY($mobile-offset-y);
+
+  @media (min-width: $viewport-lg) {
+    transform: translateX(0) translateY(0);
+  }
+}
+
+.legend {
+  display: inline-block;
+  color: $color-plum-600;
+  font-weight: bold;
+  padding: 1px 3px;
+  @media (min-width: $viewport-md) {
+    padding: 2px 5px;
+  }
+  &.cdc {
+    background: white;
+  }
+  &.ctp {
+    background: $chart-color;
+    color: white;
+  }
+}
