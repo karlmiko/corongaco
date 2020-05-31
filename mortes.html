@@ -65,40 +65,43 @@
 							<canvas id="myChart" style="display: block; width: 580px; height: 290px;" width="580" height="290"></canvas>
 
 							<script>
-								var ctx = document.getElementById('myChart').getContext('2d');
-								var myChart = new Chart(ctx, {
-								  	type: 'bar',
-									plugins: [ChartDataSource],
-									options: {
-										plugins: {
-										    datasource: {
-										        url: 'https://coronga.co/tables/medianage.xlsx',
-												rowMapping: 'datapoint',
-												datapointLabels: 'Sheet1!A1:C1',
-												datapointLabelMapping: {
-													_dataset: 'country',
-													_index: 'age',
-													x: 'age',
-													y: 'deaths'
-												},
-												data: 'Sheet1!A2:C8'
-										    }
-										}
-									},
-									data: {
-									    datasets: [{
-									        	backgroundColor: 'rgb(19, 82, 150)',
-									        	borderColor: 'transparent'
-									      	},
-									      	{
-									        	backgroundColor: 'rgb(196, 230, 255)',
-									        	borderColor: 'transparent'
-									      	}
-									    ]
 
-									    
-									}
-								});
+								window.addEventListener('load', setup);
+
+							    async function setup() {
+									var ctx = document.getElementById('myChart').getContext('2d');
+									const dataTemps = await getData();
+									var myChart = new Chart(ctx, {
+									  	type: 'line',
+									  	data: {
+									  		labels: dataTemps.age,
+											datasets: [
+											{
+												label: 'Age',
+												data: dataTemps.deaths,
+												fill: false,											
+												borderColor: chartColors.red,
+												backgroundColor: 'rgba(255, 99, 132, 1)',
+											}]
+										},
+									});
+								}
+
+								async function getData() {
+							        // const response = await fetch('testdata.csv');
+							        const response = await fetch('https://coronga.co/tables/medianage.csv');
+							        const data = await response.text();
+							        const age = [];
+							        const deaths = [];
+							        const rows = data.split('\n').slice(1);
+							        rows.forEach(row => {
+							          const cols = row.split(',');
+							          age.push(cols[1]);
+							          deaths.push(cols[2]);
+							        });
+							        return { age, deaths };
+							    }
+
 							</script>
 						</div>
 					</div>
