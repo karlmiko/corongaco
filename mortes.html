@@ -72,7 +72,16 @@
 									options: {
 										plugins: {
 										    datasource: {
-										        url: 'https://coronga.co/sample-dataset.xlsx'
+										        url: 'https://coronga.co/tables/medianage.xlsx'
+												rowMapping: 'datapoint',
+												datapointLabels: 'Sheet1!A1:C1',
+												datapointLabelMapping: {
+													_dataset: 'country',
+													_index: 'age',
+													x: 'age',
+													y: 'deaths'
+												},
+												data: 'Sheet1!A2:C8'
 										    }
 										}
 									},
@@ -86,6 +95,8 @@
 									        	borderColor: 'transparent'
 									      	}
 									    ]
+
+									    
 									}
 								});
 							</script>
