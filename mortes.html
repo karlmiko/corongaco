@@ -14,7 +14,14 @@
 	</head>
 	<body class="is-preload">
 
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+		<!--
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.1/xlsx.min.js"></script>s
+		<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datasource@0.1.0"></script> -->
+
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+		<script src="https://cdn.jsdelivr.net/npm/xlsx@0.14.3/dist/xlsx.full.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datasource@0.1.0"></script>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -52,50 +59,34 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<h1>CLIMA</h1>
+							<h1>MORTES</h1>
 							<!-- <span class="image main"><img src="images/pic13.jpg" alt="" /></span> -->
-
-							<canvas id="mixed-chart" width="800" height="450"></canvas>
 							
+							<canvas id="myChart" style="display: block; width: 580px; height: 290px;" width="580" height="290"></canvas>
 
 							<script>
-								var myChart = new Chart(document.getElementById("mixed-chart"), {
-								    type: 'bar',
-								    data: {
-								      labels: ["1900", "1950", "1999", "2050"],
-								      datasets: [{
-								          label: "Europe",
-								          type: "line",
-								          borderColor: "#8e5ea2",
-								          data: [408,547,675,734],
-								          fill: false
-								        }, {
-								          label: "Africa",
-								          type: "line",
-								          borderColor: "#3e95cd",
-								          data: [133,221,783,2478],
-								          fill: false
-								        }, {
-								          label: "Europe",
-								          type: "bar",
-								          backgroundColor: "rgba(0,0,0,0.2)",
-								          data: [408,547,675,734],
-								        }, {
-								          label: "Africa",
-								          type: "bar",
-								          backgroundColor: "rgba(0,0,0,0.2)",
-								          backgroundColorHover: "#3e95cd",
-								          data: [133,221,783,2478]
-								        }
-								      ]
-								    },
-								    options: {
-								      title: {
-								        display: true,
-								        text: 'Population growth (millions): Europe & Africa'
-								      },
-								      legend: { display: true}
-								    }
+								var ctx = document.getElementById('myChart').getContext('2d');
+								var myChart = new Chart(ctx, {
+								  	type: 'bar',
+									plugins: [ChartDataSource],
+									options: {
+										plugins: {
+										    datasource: {
+										        url: 'https://coronga.co/sample-dataset.xlsx'
+										    }
+										}
+									},
+									data: {
+									    datasets: [{
+									        	backgroundColor: 'rgb(19, 82, 150)',
+									        	borderColor: 'transparent'
+									      	},
+									      	{
+									        	backgroundColor: 'rgb(196, 230, 255)',
+									        	borderColor: 'transparent'
+									      	}
+									    ]
+									}
 								});
 							</script>
 						</div>
