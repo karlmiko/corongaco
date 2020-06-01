@@ -69,7 +69,7 @@
 									const myChart = new Chart(ctx, {
 									  	type: 'bar',
 									  	data: {
-									  		labels: data.x_countries,
+									  		labels: data.x_country,
 											datasets: [
 											{
 												label: 'Average Age of Population',
@@ -127,13 +127,13 @@
 											}]
 										},
 										options: {
-											legend: { display: true}
+											legend: { display: true },
 										}
 									});
 								}
 
 								async function getData() {
-							        const response = await fetch('https://raw.githubusercontent.com/karlmiko/corongaco/master/tables/bigmatrix.csv');
+							        const response = await fetch('https://raw.githubusercontent.com/karlmiko/corongaco/master/tables/normalized_bigmatrix.csv');
 							        const data = await response.text();
 							        const rows = data.split(/\r/).slice(1);
 							        const x_country = [];
@@ -166,7 +166,7 @@
 							          y_internet.push(internet);
 
 							          const fatality = cols[6];
-							          y_fatality.push(fatality;
+							          y_fatality.push(fatality);
 							        });
 							        return { x_country, y_age, y_deaths, y_deaths_mil, y_density, y_internet, y_fatality }
 							    }
