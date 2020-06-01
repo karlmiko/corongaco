@@ -27,7 +27,7 @@
 
 							<!-- Logo -->
 								<a href="index.html" class="logo">
-									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">CORONGA</span>
+									<span class="symbol"><img src="https://raw.githubusercontent.com/karlmiko/corongaco/master/images/logo.svg" alt="" /></span><span class="title">CORONGA</span>
 								</a>
 
 							<!-- Nav -->
@@ -54,7 +54,7 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<h1>MORTES</h1>
+							<h1>Big Ass CHART</h1>
 							<!-- <span class="image main"><img src="images/pic13.jpg" alt="" /></span> -->
 							
 							<canvas id="myChart" width="580" height="290"></canvas>
@@ -65,44 +65,110 @@
 
 							    async function chartIt() {
 							    	const data = await getData();
-									const ctx = document.getElementById('myChart').getContext('2d');
+									const ctx  = document.getElementById('myChart').getContext('2d');
 									const myChart = new Chart(ctx, {
-									  	type: 'line',
+									  	type: 'bar',
 									  	data: {
-									  		labels: data.x_ages,
+									  		labels: data.x_countries,
 											datasets: [
 											{
-												label: 'Deaths',
-												data: data.y_deaths,
+												label: 'Average Age of Population',
+												type: 'bar',
+												data: data.y_age,
 												fill: false,											
 												borderColor: 'rgba(250, 90, 132, 0.2)',
 												backgroundColor: 'rgba(255, 99, 132, 1)',
 												boarderWidth: 1
+											}, {
+
+												label: 'Number of Confirmed Deaths',
+												type: 'line',
+												data: data.y_deaths,
+												fill: false,											
+												borderColor: "#3e95cd",
+												backgroundColor: "#2e75ad",
+												boarderWidth: 1
+											}, {
+
+												label: 'Number of Deaths per 1 Million people',
+												type: 'line',
+												data: data.y_deaths_mil,
+												fill: false,											
+												borderColor: "#3aaa1d",
+												backgroundColor: "#5a78ad",
+												boarderWidth: 1
+											}, {
+
+												label: 'Population Density',
+												type: 'bar',
+												data: data.y_density,
+												fill: false,											
+												borderColor: "#3e45cd",
+												backgroundColor: "#2277bb",
+												boarderWidth: 1
+											}, {
+
+												label: 'Percentage of the Population with Access to Internet',
+												type: 'bar',
+												data: data.y_internet,
+												fill: false,											
+												borderColor: "#1888cd",
+												backgroundColor: "#2888ad",
+												boarderWidth: 1
+											}, {
+
+												label: 'Fatality',
+												type: 'line',
+												data: data.y_fatality,
+												fill: false,											
+												borderColor: "#d3955a",
+												backgroundColor: "#2e255d",
+												boarderWidth: 1
 											}]
 										},
 										options: {
-									    title: {
-									      	display: true,
-									      	text: 'Number of Deaths by Population Average Age '
-									    	}
-									  	}
+											legend: { display: true}
+										}
 									});
 								}
 
 								async function getData() {
-							        const response = await fetch('https://raw.githubusercontent.com/karlmiko/corongaco/master/tables/medianage.csv');
+							        const response = await fetch('https://raw.githubusercontent.com/karlmiko/corongaco/master/tables/bigmatrix.csv');
 							        const data = await response.text();
 							        const rows = data.split(/\r/).slice(1);
-							        const x_ages = [];
+							        const x_country = [];
+							        const y_age = [];
 							        const y_deaths = [];
+							        const y_deaths_mil = [];
+							        const y_density = [];
+							        const y_internet = [];
+							        const y_fatality = [];
+							        
 							        rows.forEach(row => {
 							          const cols = row.split(',');
+							          
+							          const country = cols[0];
+							          x_country.push(country);
+							          
 							          const age = cols[1];
-							          x_ages.push(age);
+							          y_age.push(age);
+							          
 							          const deaths = cols[2];
 							          y_deaths.push(deaths);
+
+							          const deaths_mil = cols[3];
+							          y_deaths_mil.push(deaths_mil);
+
+							          const density = cols[4];
+							          y_density.push(density);
+
+							          const internet = cols[5];
+							          y_internet.push(internet);
+
+							          const fatality = cols[6];
+							          y_fatality.push(fatality;
 							        });
-							        return { x_ages, y_deaths }
+							        return { x_country, y_age, y_deaths, y_deaths_mil, y_density, y_internet, y_fatality }
 							    }
 
 							</script>
