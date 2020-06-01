@@ -52,52 +52,10 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<h1>CLIMA</h1>
-							<!-- <span class="image main"><img src="images/pic13.jpg" alt="" /></span> -->
+							<h1>Pitch</h1>
+							<p>This is our entry for the 2020 NASA Space Apps Challenge - COVID-19, where we tried to solve Challenge #3: Where there's a link, there's a way.</p>
 
-							<canvas id="mixed-chart" width="800" height="450"></canvas>
-							
-
-							<script>
-								var myChart = new Chart(document.getElementById("mixed-chart"), {
-								    type: 'bar',
-								    data: {
-								      labels: ["1900", "1950", "1999", "2050"],
-								      datasets: [{
-								          label: "Europe",
-								          type: "line",
-								          borderColor: "#8e5ea2",
-								          data: [408,547,675,734],
-								          fill: false
-								        }, {
-								          label: "Africa",
-								          type: "line",
-								          borderColor: "#3e95cd",
-								          data: [133,221,783,2478],
-								          fill: false
-								        }, {
-								          label: "Europe",
-								          type: "bar",
-								          backgroundColor: "rgba(0,0,0,0.2)",
-								          data: [408,547,675,734],
-								        }, {
-								          label: "Africa",
-								          type: "bar",
-								          backgroundColor: "rgba(0,0,0,0.2)",
-								          backgroundColorHover: "#3e95cd",
-								          data: [133,221,783,2478]
-								        }
-								      ]
-								    },
-								    options: {
-								      title: {
-								        display: true,
-								        text: 'Population growth (millions): Europe & Africa'
-								      },
-								      legend: { display: true}
-								    }
-								});
-							</script>
+							<iframe width="720" height="405" src="https://www.youtube.com/embed/ujknOwQHkqU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</div>
 					</div>
 
@@ -105,21 +63,21 @@
 					<footer id="footer">
 						<div class="inner">
 							<section>
-								<h2>Entre em contato</h2>
+								<h2>Contact Us</h2>
 								<form method="post" action="#">
 									<div class="fields">
 										<div class="field half">
-											<input type="text" name="name" id="name" placeholder="Nome" />
+											<input type="text" name="name" id="name" placeholder="Name" />
 										</div>
 										<div class="field half">
 											<input type="email" name="email" id="email" placeholder="Email" />
 										</div>
 										<div class="field">
-											<textarea name="message" id="message" placeholder="Mensagem"></textarea>
+											<textarea name="message" id="message" placeholder="Message"></textarea>
 										</div>
 									</div>
 									<ul class="actions">
-										<li><input type="submit" value="Enviar" class="primary" /></li>
+										<li><input type="submit" value="Submit" class="primary" /></li>
 									</ul>
 								</form>
 							</section>
