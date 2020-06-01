@@ -54,7 +54,7 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<h1>This chart is huge!</h1>
+							<h1>Median Age and Confirmed Deaths</h1>
 							<p>Note: For the purpose of display, and due to time constraints, the data has been simply normalized to fit the chart.</p>
 							
 							<h2>Select the variables you want to see from the legend below.</h2>
@@ -74,15 +74,18 @@
 											datasets: [
 											{
 												label: 'Average Age of Population',
+												hidden: false,
 												type: 'line',
 												data: data.y_age,
 												fill: false,											
 												borderColor: '#66ff33',
 												backgroundColor: '#33cc00',
 												boarderWidth: 1
+
 											}, {
 
 												label: 'Number of Confirmed Deaths',
+												hidden: false,
 												type: 'line',
 												data: data.y_deaths,
 												fill: false,											
@@ -92,6 +95,7 @@
 											}, {
 
 												label: 'Number of Deaths per 1 Million people',
+												hidden: true,
 												type: 'line',
 												data: data.y_deaths_mil,
 												fill: false,											
@@ -101,6 +105,7 @@
 											}, {
 
 												label: 'Population Density',
+												hidden: true,
 												type: 'line',
 												data: data.y_density,
 												fill: false,											
@@ -110,6 +115,7 @@
 											}, {
 
 												label: 'Percentage of the Population with Access to Internet',
+												hidden: true,
 												type: 'line',
 												data: data.y_internet,
 												fill: false,											
@@ -119,6 +125,7 @@
 											}, {
 
 												label: 'Fatality',
+												hidden: true,
 												type: 'line',
 												data: data.y_fatality,
 												fill: false,											
